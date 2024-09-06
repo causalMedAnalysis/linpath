@@ -83,7 +83,7 @@ seed is used and the results cannot be replicated. {p_end}
 {pstd}(b) Fit a linear model for the outcome conditional on the exposure, baseline confounders, and all
 the mediators in Mk={M1,...,Mk}.
 
-{pstd}4. Calculate estimates for the path-specific effects using coefficients from the models fit in step 1.
+{pstd}2. Calculate estimates for the path-specific effects using coefficients from the models fit in step 1.
 
 {pstd}If there are K causally ordered mediators, {cmd:linpath} provides estimates for the total effect and then for K+1 path-specific effects:
 the direct effect of the exposure on the outcome that does not operate through any of the mediators, and then a separate path-specific effect 
