@@ -1,0 +1,32 @@
+{smcl}
+{txt}{sf}{ul off}
+{.-}
+{s6hlp}
+package ^linpath^ from https://github.com/causalMedAnalysis/linpath
+{smcl}
+{.-}
+{s6hlp}
+
+{smcl}
+{hilite:TITLE}{p 6 8}'LINPATH': module to estimate path-specific effects using linear models{p_end}
+{s6hlp}
+
+^DESCRIPTION/AUTHOR(S)^
+      
+linpath estimates path-specific effects using linear models.
+      
+Requires: Stata version 15
+      
+Distribution-Date: 20240710
+      
+Author: Geoff Wodtke, University of Chicago
+Support: email wodtke@@uchicago.edu
+      
+
+^INSTALLATION FILES^                              (type ^net install^ ^linpath^)
+      linpath.ado
+	  linpathbs.ado
+	  mlinpath.ado
+      linpath.sthlp
+
+{txt}{sf}{ul off}
