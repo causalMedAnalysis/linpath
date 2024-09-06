@@ -40,13 +40,15 @@ linpath depvar mvars [if] [in] [pweight], dvar(varname) d(real) dstar(real) [opt
 
 If only one mediator is specified, `linpath` computes the conventional natural direct and indirect effects.
 
-To compute path-specific effects with K causally ordered mediators, `linpath` proceeds as follows: 
+To format this list properly in Markdown, you can use indentation by adding four spaces before the subpoints `(a)` and `(b)` under step 1. Here's how it looks:
+
+To compute path-specific effects with K causally ordered mediators, `linpath` proceeds as follows:
 
 1. Fit models for the mediators and outcome. For k = 1, 2, . . ., K:
 
-(a) Fit a linear model for the kth mediator conditional on the exposure and baseline confounders.
+    (a) Fit a linear model for the kth mediator conditional on the exposure and baseline confounders.
 
-(b) Fit a linear model for the outcome conditional on the exposure, baseline confounders, and all the mediators in Mk={M1,...,Mk}.
+    (b) Fit a linear model for the outcome conditional on the exposure, baseline confounders, and all the mediators in Mk={M1,...,Mk}.
 
 2. Calculate estimates for the path-specific effects using coefficients from the models fit in step 1.
 
