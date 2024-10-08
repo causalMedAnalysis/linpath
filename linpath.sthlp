@@ -21,12 +21,8 @@
 {opt nointer:action} 
 {opt cxd} 
 {opt cxm} 
-{opt reps(integer)} 
-{opt strata(varname)} 
-{opt cluster(varname)} 
-{opt level(cilevel)} 
-{opt seed(passthru)}
 {opt detail}
+[{it:{help bootstrap##options:bootstrap_options}}]
 
 {phang}{opt depvar} - this specifies the outcome variable.
 
@@ -54,21 +50,9 @@ included in the mediator and outcome models.
 {phang}{opt cxm} - this option specifies that all two-way interactions between the mediators and baseline covariates are
 included in the outcome models.
 
-{phang}{opt reps(integer)} - this option specifies the number of replications for bootstrap resampling (the default is 200).
+{phang}{opt detail} - this option prints the fitted models for the mediators and outcome used to construct effect estimates.
 
-{phang}{opt strata(varname)} - this option specifies a variable that identifies resampling strata. If this option is specified, 
-then bootstrap samples are taken independently within each stratum.
-
-{phang}{opt cluster(varname)} - this option specifies a variable that identifies resampling clusters. If this option is specified,
-then the sample drawn during each replication is a bootstrap sample of clusters.
-
-{phang}{opt level(cilevel)} - this option specifies the confidence level for constructing bootstrap confidence intervals. If this 
-option is omitted, then the default level of 95% is used.
-
-{phang}{opt seed(passthru)} - this option specifies the seed for bootstrap resampling. If this option is omitted, then a random 
-seed is used and the results cannot be replicated. {p_end}
-
-{phang}{opt detail} - this option prints the fitted models for the mediators and outcome used to construct effect estimates. {p_end}
+{phang}{it:{help bootstrap##options:bootstrap_options}} - all {help bootstrap} options are available. {p_end}
 
 {title:Description}
 
@@ -90,6 +74,11 @@ the direct effect of the exposure on the outcome that does not operate through a
 operating through each of the K mediators, net of the mediators that precede it in causal order. If only a single mediator is specified, 
 {cmd:linpath} just reports estimates of conventional natural direct and indirect effects through a univariate mediator. {p_end}
 
+{pstd}If using {help pweights} from a complex sample design that require rescaling to produce valid boostrap estimates, be sure to appropriately 
+specify the strata(), cluster(), and size() options from the {help bootstrap} command so that Nc-1 clusters are sampled from each stratum 
+with replacement, where Nc denotes the number of clusters per stratum. Failing to properly adjust the bootstrap procedure to account
+for a complex sample design and its associated sampling weights could lead to invalid inferential statistics. {p_end}
+
 {title:Examples}
 
 {pstd}Setup{p_end}
@@ -97,19 +86,19 @@ operating through each of the K mediators, net of the mediators that precede it 
 
 {pstd} percentile bootstrap CIs with default settings and K=2 causally ordered mediators: {p_end}
  
-{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) reps(1000)} {p_end}
+{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0)} {p_end}
 
-{pstd} percentile bootstrap CIs with default settings and K=3 causally ordered mediators: {p_end}
+{pstd} percentile bootstrap CIs with 1000 replications and K=3 causally ordered mediators: {p_end}
  
 {phang2}{cmd:. linpath std_cesd_age40 cesd_1992 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) reps(1000)} {p_end}
 
 {pstd} percentile bootstrap CIs with default settings, K=2 causally ordered mediators, and all two-way interactions: {p_end}
  
-{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) cxd cxm reps(1000)} {p_end}
+{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) cxd cxm} {p_end}
 
 {pstd} percentile bootstrap CIs with default settings, K=2 causally ordered mediators, and no interactions, printing detailed output: {p_end}
  
-{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) nointer reps(1000) detail} {p_end}
+{phang2}{cmd:. linpath std_cesd_age40 ever_unemp_age3539 log_faminc_adj_age3539, dvar(att22) cvars(female black hispan paredu parprof parinc_prank famsize afqt3) d(1) dstar(0) nointer reps detail} {p_end}
 
 {title:Saved results}
 
