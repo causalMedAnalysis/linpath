@@ -56,7 +56,7 @@ included in the outcome models.
 
 {title:Description}
 
-{pstd}{cmd:linpath} estimates path-specific effects using linear models. 
+{pstd}{cmd:linpath} estimates path-specific effects using linear models, and it computes inferential statistics using the nonparametric bootstrap.
 
 {pstd}With K causally ordered mediators, this approach is implemented as follows: 
 
