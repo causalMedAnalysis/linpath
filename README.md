@@ -29,7 +29,7 @@ linpath depvar mvars [if] [in] [pweight], dvar(varname) d(real) dstar(real) [opt
 
 ## Description
 
-`linpath` estimates path-specific effects by fitting linear models for the mediators and outcome. If there are K causally ordered mediators, `linpath` provides estimates for:
+`linpath` estimates path-specific effects by fitting linear models for the mediators and outcome, and it computes inferential statistics using the nonparametric bootstrap. If there are K causally ordered mediators, `linpath` provides estimates for:
 
 1. A direct effect of the exposure on the outcome that does not operate through any of the mediators.
 2. K path-specific effects, with each path operating through one mediator and net of the mediators preceding it in causal order.
