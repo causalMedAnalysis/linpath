@@ -13,7 +13,7 @@ linpath depvar mvars [if] [in] [pweight], dvar(varname) d(real) dstar(real) [opt
 ### Required Arguments
 
 - `depvar`: Specifies the outcome variable.
-- `mvars`: Specifies the mediators in causal order, starting from the first in the hypothesized causal sequence to the last. Up to 5 mediators can be included.
+- `mvars`: Specifies the mediators in causal order, starting from the first in the hypothesized causal sequence to the last.
 - `dvar(varname)`: Specifies the treatment (exposure) variable.
 - `d(real)`: Specifies the reference level of treatment.
 - `dstar(real)`: Specifies the alternative level of treatment. Together, (d - dstar) defines the treatment contrast of interest.
